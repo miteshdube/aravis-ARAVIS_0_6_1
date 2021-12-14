@@ -23,7 +23,7 @@
 #ifndef ARV_GVSP_H
 #define ARV_GVSP_H
 
-#if !defined (ARV_H_INSIDE) && !defined (ARAVIS_COMPILATION)
+#if !defined (ARV_H_INSIDE) && !defined (ARAVIS_COMPILATION) && !defined(EXTENSION_BUILD)
 #error "Only <arv.h> can be included directly."
 #endif
 
