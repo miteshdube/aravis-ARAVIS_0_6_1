@@ -396,7 +396,9 @@ arv_fake_camera_get_heartbeat_timeout (ArvFakeCamera *camera)
 void
 arv_set_fake_camera_genicam_filename (const char *filename)
 {
+	g_print("\nRecd filename - %s\n",filename);
 	arv_fake_camera_genicam_filename = filename;
+	g_print("\nSet filename - %s\n",arv_fake_camera_genicam_filename);
 }
 
 const char *
@@ -460,8 +462,10 @@ arv_fake_camera_new (const char *serial_number)
 	fake_camera->priv->genicam_xml = arv_get_fake_camera_genicam_xml (&fake_camera->priv->genicam_xml_size);
 	fake_camera->priv->memory = memory;
 
-	strcpy (((char *) memory) + ARV_GVBS_MANUFACTURER_NAME_OFFSET, "Aravis");
-	strcpy (((char *) memory) + ARV_GVBS_MODEL_NAME_OFFSET, "Fake");
+	//strcpy (((char *) memory) + ARV_GVBS_MANUFACTURER_NAME_OFFSET, "Aravis");
+	strcpy (((char *) memory) + ARV_GVBS_MANUFACTURER_NAME_OFFSET, "BMIT");
+	//strcpy (((char *) memory) + ARV_GVBS_MODEL_NAME_OFFSET, "Fake");
+	strcpy (((char *) memory) + ARV_GVBS_MODEL_NAME_OFFSET, "Ind-Cam");
 	strcpy (((char *) memory) + ARV_GVBS_DEVICE_VERSION_OFFSET, PACKAGE_VERSION);
 	strcpy (((char *) memory) + ARV_GVBS_SERIAL_NUMBER_OFFSET, serial_number);
 
